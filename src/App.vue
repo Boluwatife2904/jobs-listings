@@ -222,8 +222,9 @@ body::after {
 
 .body-content {
   padding-top: 190px;
-  max-width: 80%;
-  width: 100%;
+  padding-bottom: 50px;
+  max-width: 1024px;
+  width: 90%;
   margin: auto;
 
   &.low-space {

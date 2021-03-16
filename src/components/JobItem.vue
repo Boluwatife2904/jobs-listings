@@ -1,5 +1,5 @@
 <template>
-  <div class="job-item" :class="{featured : job.featured}">
+  <div class="job-item" :class="{ featured: job.featured }">
     <div class="job-information">
       <img :src="job.logo" :alt="job.company" class="company-logo" />
       <div class="job-content">
@@ -48,17 +48,25 @@ export default {
   margin-bottom: 30px;
   padding: 25px 15px 25px 30px;
   box-shadow: 2px 4px 26px 1px rgba(91, 164, 164, 0.2);
+  position: relative;
 
   &.featured {
-    border-left : 4px solid hsl(180, 29%, 50%)
+    border-left: 4px solid hsl(180, 29%, 50%);
   }
 
   .job-information {
     display: flex;
-      flex-shrink: 0;
+    flex-shrink: 0;
 
     img {
       margin-right: 15px;
+
+      @media screen and (max-width: 576px) {
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        top: -30px;
+      }
     }
 
     .job-content {
@@ -85,7 +93,7 @@ export default {
 
       .other-information {
         span {
-          color : hsl(180, 8%, 52%);
+          color: hsl(180, 8%, 52%);
           font-weight: 500;
           font-size: 13px;
           margin-right: 30px;
@@ -100,6 +108,10 @@ export default {
             border-radius: 50%;
             top: 4px;
             right: -15px;
+
+            @media screen and (max-width: 576px) {
+              right: -11px;
+            }
           }
 
           &:last-child {
@@ -107,13 +119,31 @@ export default {
               display: none;
             }
           }
+
+          @media screen and (max-width: 576px) {
+            margin-right: 20px;
+          }
         }
       }
     }
+
+    @media screen and (max-width: 779px) {
+      width: 100%;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(123, 142, 142, 0.5);
+    }
   }
 
-  .job-tags {
+  @media screen and (max-width: 779px) {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
+  @media screen and (max-width: 576px) {
+    padding-top: 50px;
+    margin-bottom: 50px;
   }
 }
 </style>

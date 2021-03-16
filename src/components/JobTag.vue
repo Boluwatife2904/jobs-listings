@@ -23,10 +23,11 @@ span {
   color: hsl(180, 29%, 50%);
   font-weight: 600;
   font-size: 12px;
-  padding: 8px 14px;
-  margin-right: 8px;
+  padding: 8px 14px 6px;
+  margin: 8px 8px 8px 0;
   transition: all .3s ease-in-out;
   cursor: pointer;
+  display: inline-block;
 
   &:hover {
     background: hsl(180, 29%, 50%);
