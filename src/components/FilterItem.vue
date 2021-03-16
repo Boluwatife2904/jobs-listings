@@ -15,33 +15,22 @@ export default {
   },
   methods: {
     removeFilter() {
-      this.$emit('remove-filter', this.name)
-    }
-  }
+      this.$emit("remove-filter", this.name);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .filter-item {
-  // border-radius: 4px;
-  // background: hsl(180, 31%, 95%);
-  // color: hsl(180, 29%, 50%);
-  // font-weight: 600;
-  // font-size: 12px;
-  // padding: 8px 14px 6px;
-  // margin: 8px 8px 8px 0;
-  // transition: all 0.3s ease-in-out;
   display: inline-flex;
   margin: 8px 8px 8px 0;
 
   span {
-  // border-radius: 4px;
-  background: hsl(180, 31%, 95%);
-  color: hsl(180, 29%, 50%);
-  font-weight: 600;
-  font-size: 12px;
-  // padding: 8px 14px 6px;
-  // margin: 8px 8px 8px 0;
+    background: hsl(180, 31%, 95%);
+    color: hsl(180, 29%, 50%);
+    font-weight: 600;
+    font-size: 12px;
   }
 
   .name {
@@ -55,7 +44,7 @@ export default {
     color: #ffffff;
     cursor: pointer;
     border-radius: 0px 4px 4px 0px;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &:hover {
       background: hsl(180, 14%, 20%);

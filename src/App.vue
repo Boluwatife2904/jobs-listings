@@ -196,24 +196,13 @@ export default {
     };
   },
   computed: {
-    // filteredJobs() {
-    //   if (this.filters && this.filters.length > 0) {
-    //    this.filters.forEach((item) => {
-    //       // console.log(item);
-    //       return this.jobs.filter((job) => job.tags.includes(item));
-    //     });
-    //     // return this.jobs;
-    //   } else {
-    //     return this.jobs;
-    //   }
-    //   return this.jobs;
-    // },
-     filteredJobs() {
+    filteredJobs() {
       if (this.filters && this.filters.length > 0) {
-        // return this.jobs.filter((job) => job.tags.indexOf(...this.filters) > -1);
-        return this.jobs.filter((job) => job.tags.some(item => this.filters.indexOf(item) > -1))
+        return this.jobs.filter((job) =>
+          job.tags.some((item) => this.filters.indexOf(item) > -1)
+        );
       }
-      return this.jobs
+      return this.jobs;
     },
   },
   methods: {
@@ -265,6 +254,10 @@ body::after {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
+
+  @media screen and (max-width: 375px) {
+    background: url("./assets/images/bg-header-mobile.svg") hsl(180, 29%, 50%);
+  }
 }
 
 .body-content {
