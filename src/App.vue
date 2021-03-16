@@ -1,6 +1,6 @@
 <template>
-  <div class="body-content">
-    <div class="filter-box">
+  <div class="body-content" :class="{'low-space' : filter}">
+    <div class="filter-box" v-show="filter">
       <h2>Filter Box goes in here</h2>
     </div>
     <div class="jobs-container">
@@ -19,6 +19,7 @@ export default {
   components: { JobItem },
   data() {
     return {
+      filter: null,
       jobs: [
         {
           id: 1,
@@ -34,7 +35,7 @@ export default {
           location: "USA Only",
           languages: ["HTML", "CSS", "JavaScript"],
           tools: [],
-          tags: ["Frontend", 'Senior', "HTML", "CSS", "JavaScript", ]
+          tags: ["Frontend", 'Senior', "HTML", "CSS", "JavaScript",]
         },
         {
           id: 2,
@@ -50,7 +51,7 @@ export default {
           location: "Remote",
           languages: ["Python"],
           tools: ["React"],
-          tags: ["Fullstack", "Midweight", "Python",]
+          tags: ["Fullstack", "Midweight", "Python", "React"]
         },
         {
           id: 3,
@@ -66,7 +67,7 @@ export default {
           location: "USA Only",
           languages: ["JavaScript"],
           tools: ["React", "Sass"],
-          tags: ["Frontend", 'Junior', "JavaScript",]
+          tags: ["Frontend", 'Junior', "React", "Sass", "JavaScript",]
         },
         {
           id: 4,
@@ -82,7 +83,7 @@ export default {
           location: "USA Only",
           languages: ["CSS", "JavaScript"],
           tools: [],
-          tags: ["Frontend", 'Junior', "CSS", "JavaScript", ]
+          tags: ["Frontend", 'Junior', "CSS", "JavaScript",]
         },
         {
           id: 5,
@@ -98,7 +99,7 @@ export default {
           location: "Worldwide",
           languages: ["JavaScript"],
           tools: ["Ruby", "Sass"],
-          tags: ["Fullstack", 'Midweight', "JavaScript",]
+          tags: ["Fullstack", 'Midweight', "JavaScript", "Sass", "Ruby"]
         },
         {
           id: 6,
@@ -114,7 +115,7 @@ export default {
           location: "UK Only",
           languages: ["Ruby"],
           tools: ["RoR"],
-          tags: ["Backend", 'Junior', "Ruby", ]
+          tags: ["Backend", 'Junior', "Ruby", "RoR"]
         },
         {
           id: 7,
@@ -130,7 +131,7 @@ export default {
           location: "Worldwide",
           languages: ["HTML", "JavaScript"],
           tools: ["Sass"],
-          tags: ["Frontend", 'Junior', "HTML", "JavaScript", ]
+          tags: ["Frontend", 'Junior', "HTML", "Sass", "JavaScript",]
         },
         {
           id: 8,
@@ -146,7 +147,7 @@ export default {
           location: "USA Only",
           languages: ["JavaScript"],
           tools: ["Vue", "Sass"],
-          tags: ["Frontend", 'Junior', "JavaScript", ]
+          tags: ["Frontend", 'Junior', "Vue", "JavaScript", "Sass"]
         },
         {
           id: 9,
@@ -162,7 +163,7 @@ export default {
           location: "Worldwide",
           languages: ["JavaScript", "Python"],
           tools: ["Django"],
-          tags: ["Fullstack", 'Midweight', "JavaScript", "Python"]
+          tags: ["Fullstack", 'Midweight', "JavaScript", "Django", "Python"]
         },
         {
           id: 10,
@@ -178,7 +179,7 @@ export default {
           location: "Worldwide",
           languages: ["JavaScript"],
           tools: ["React", "Sass"],
-          tags: ["Frontend", 'Junior', "JavaScript", ]
+          tags: ["Frontend", 'Junior', "React", "Sass", "JavaScript",]
         },
       ],
     };
@@ -220,10 +221,14 @@ body::after {
 }
 
 .body-content {
-  padding-top: 108px;
+  padding-top: 190px;
   max-width: 80%;
   width: 100%;
   margin: auto;
+
+  &.low-space {
+    padding-top: 108px;
+  }
 
   .filter-box {
     background: #ffffff;
