@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span @click="setFilter">
     {{ tag }}
   </span>
 </template>
@@ -7,10 +7,16 @@
 <script>
 export default {
   name: "JobTag",
+  emits: ['set-filter'],
   props: {
     tag: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    setFilter() {
+      this.$emit("set-filter", this.tag);
     }
   }
 }

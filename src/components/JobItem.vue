@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="job-tags">
-      <job-tag v-for="tag in job.tags" :key="tag" :tag="tag"></job-tag>
+      <job-tag v-for="tag in job.tags" :key="tag" :tag="tag" @set-filter="setFilter"></job-tag>
     </div>
   </div>
 </template>
@@ -29,12 +29,18 @@ import JobTag from "./JobTag.vue";
 export default {
   name: "JobItem",
   components: { JobBadge, JobTag },
+  emits: ['set-filter'],
   props: {
     job: {
       type: Object,
       required: false,
     },
   },
+  methods: {
+    setFilter(tag) {
+      this.$emit('set-filter', tag);
+    }
+  }
 };
 </script>
 
@@ -83,8 +89,9 @@ export default {
       }
 
       .job-position {
-        font-size: 14px;
+        font-size: 15px;
         margin-bottom: 8px;
+        font-weight: 600;
 
         &:hover {
           color: hsl(180, 29%, 50%);
