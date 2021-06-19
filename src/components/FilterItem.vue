@@ -13,11 +13,12 @@ export default {
       required: true,
     },
   },
-  methods: {
-    removeFilter() {
-      this.$emit("remove-filter", this.name);
-    },
-  },
+  setup(props, context) {
+    const removeFilter = () => {
+      context.emit("remove-filter", props.name)
+    }
+    return { removeFilter }
+  }
 };
 </script>
 

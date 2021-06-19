@@ -36,10 +36,11 @@ export default {
       required: false,
     },
   },
-  methods: {
-    setFilter(tag) {
-      this.$emit('set-filter', tag);
+  setup(_, context) {
+    const setFilter = (tag) => {
+      context.emit("set-filter", tag)
     }
+    return { setFilter }
   }
 };
 </script>

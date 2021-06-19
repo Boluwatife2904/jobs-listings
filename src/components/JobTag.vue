@@ -14,10 +14,11 @@ export default {
       required: true
     }
   },
-  methods: {
-    setFilter() {
-      this.$emit("set-filter", this.tag);
+  setup(props, context) {
+    const setFilter = () => {
+      context.emit("set-filter", props.tag)
     }
+    return { setFilter }
   }
 }
 </script>
